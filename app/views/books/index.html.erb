@@ -1,0 +1,5 @@
+<h1>Book!</h1>
+
+<%@books.each do |book|%>
+<li><%=link_to book.title, book_path(book)%> (<%= book.pages%> pages)</li>
+<%end%>

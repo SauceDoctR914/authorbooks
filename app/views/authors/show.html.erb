@@ -1,0 +1,4 @@
+<h1><%= @author.name%> (b.<%= @author.birth_year%>)</h1>
+<%= form_for @author do |form| %>
+<%= link_to "Delete", @author, method: :delete%>
+<%end%>
