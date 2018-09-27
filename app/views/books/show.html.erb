@@ -2,10 +2,20 @@
 <h3>Authors:</h3>
 <ul>
   <%@book.authors.each do |author|%>
+
+
   <li><%=link_to "#{author.name} (b. #{author.birth_year})", author_path(author)%></li>
-  <%= form_for author do |form| %>
-  <%= link_to "Delete", author, method: :delete%>
-  <%end%>
+
+
+    <% authorbook_instance = AuthorBook.find_by({author_id: author.id,book_id: @book.id})%>
+
+
+    <%= form_tag author_book_path(authorbook_instance), method: "delete" do %>
+    <%= submit_tag "Delete #{author.name}" %>
+
+
+
+    <% end %>
   <%end%>
 </ul>
 

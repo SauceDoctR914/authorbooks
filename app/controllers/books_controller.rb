@@ -5,17 +5,17 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+
   end
 
   def update
     @book = Book.find(params[:id])
     @author = Author.find(params.require(:book).permit(:id)['id'])
-    @book.authors.push(@author)
-    @book.save
+    unless @book.authors.include?(@author)
+      @book.authors.push(@author)
+      @book.save
+    end
     redirect_to book_path(@book)
   end
-
-  
-
 
 end

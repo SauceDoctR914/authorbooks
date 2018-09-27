@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="n+ZRbpslwLvvG1gwl+rZVq4pbHz/5TSFpJRVHw+WRB/RnhsUodYOyqpDy6DCGpO3U+ZE6iyA6Kckj4cSVXHspA==" />
+
+
+    <link rel="stylesheet" media="all" href="/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" />
+    <script src="/assets/application-01d80ad7ae987b10fd2d5294e5bd106089aa9c656dc8a054436152fa93089629.js"></script>
+  </head>
+
+  <body>
+    
+    <h1>Welcome to Full-snack Devs' Rails practice!</h1>
+
+<p>Your mission is to recreate this app (you can skip this page) to the best of your ability. Work with your group members to find all the features of this site, and implement them using <code>rails new</code> and the know-how that you've built through the labs. Failing that, error messages, Google, your neighbors, and your instructors can help!</p>
+
+<p>Work through the <strong>entire</strong> Authors controller (finish it!) before you start work on the Books controller. If you want to do your migrations / associations for all your models first, that's fine.</p>
+
+<h2>Some things to think about (in rough order of when you should think about them):</h2>
+<ol>
+  <li>Models and relationships
+    <ol>
+      <li>How many books does an author have?</li>
+      <li>How many authors does a book have?</li>
+    </ol>
+    (following the links in the header should help you answer these questions!)
+  </li>
+  <li>
+    <code>rails g model</code>
+  </li>
+  <li>Migrations</li>
+  <li>Associations</li>
+  <li>Routes</li>
+  <li>
+    <code>rails g controller</code>
+  </li>
+  <li>Views (if you haven't run <code>rails s</code> yet you should now)</li>
+  <li>Strong Params</li>
+  <li>Validations</li>
+  <li><code>form.collection_select</code></li>
+  <li>Nested Routes (this app uses them...somewhere. 🙃 You don't have to, but feel free to challenge yourself!)</li>
+  <li>MVC (refactoring...?)</li>
+  <li><code>before_action</code> (more refactoring...?!?)</li>
+</ol>
+
+<h2>Seed data (if you want it):</h2>
+<textarea style="width: 90%; font-family: monospace; min-height: 400px;">
+#good omens
+@neil_gaiman = Author.create(name: "Neil Gaiman", birth_year: 1960)
+@terry_pratchett = Author.create(name: "Terry Pratchett", birth_year: 1948)
+
+@good_omens = Book.create(title: "Good Omens", pages: 288)
+@good_omens.authors << @neil_gaiman
+@good_omens.authors << @terry_pratchett
+
+#heads you lose
+@lisa_lutz = Author.create(name: "Lisa Lutz", birth_year: 1970)
+@david_hayward = Author.create(name: "David Hayward", birth_year: 1880)
+
+@heads_you_lose = Book.create(title: "Heads You Lose", pages: 156)
+@heads_you_lose.authors << @lisa_lutz
+@heads_you_lose.authors << @david_hayward
+
+#between the lines
+@jodi_picoult = Author.create(name: "Jodi Picoult", birth_year: 1966)
+@samantha_van_leer = Author.create(name: "Samantha van Leer", birth_year: 1880)
+
+@between_the_lines = Book.create(title: "Between the Lines", pages: 355)
+@between_the_lines.authors << @jodi_picoult
+@between_the_lines.authors << @samantha_van_leer
+
+#the cinderella murder
+@mary_higgins_clark = Author.create(name: "Mary Higgins Clark", birth_year: 1927)
+@alafair_burke = Author.create(name: "Alafair Burke", birth_year: 1969)
+
+@the_cinderella_murder = Book.create(title: "The Cinderella Murder", pages: 320)
+@the_cinderella_murder.authors << @mary_higgins_clark
+@the_cinderella_murder.authors << @alafair_burke
+
+#why we broke up
+@daniel_handler = Author.create(name: "Daniel Handler", birth_year: 1970)
+@maira_kalman = Author.create(name: "Maira Kalman", birth_year: 1949)
+
+@why_we_broke_up = Book.create(title: "Why We Broke Up", pages: 384)
+@why_we_broke_up.authors << @daniel_handler
+@why_we_broke_up.authors << @maira_kalman
+
+#the talisman
+@stephen_king = Author.create(name: "Stephen King", birth_year: 1947)
+@peter_straub = Author.create(name: "Peter Straub", birth_year: 1943)
+
+@the_talisman = Book.create(title: "The Talisman", pages: 921)
+@the_talisman.authors << @stephen_king
+@the_talisman.authors << @peter_straub
+
+#s
+@j_j_abrams = Author.create(name: "J.J. Abrams", birth_year: 1966)
+@doug_dorst = Author.create(name: "Doug Dorst", birth_year: 1880)
+
+@s = Book.create(title: "S.", pages: 472)
+@s.authors << @j_j_abrams
+@s.authors << @doug_dorst
+
+#welcome to night vale
+@joseph_fink = Author.create(name: "Joseph Fink", birth_year: 1880)
+@jeffrey_cranor = Author.create(name: "Jeffrey Cranor", birth_year: 1975)
+
+@welcome_to_night_vale = Book.create(title: "Welcome to Night Vale", pages: 301)
+@welcome_to_night_vale.authors << @joseph_fink
+@welcome_to_night_vale.authors << @jeffrey_cranor
+
+#dash and lily's book of dares
+@rachel_cohn = Author.create(name: "Rachel Cohn", birth_year: 1968)
+@david_levithan = Author.create(name: "David Levithan", birth_year: 1972)
+
+@dash_lilys_book_of_dares = Book.create(title: "Dash & Lily's Book of Dares", pages: 257)
+@dash_lilys_book_of_dares.authors << @rachel_cohn
+@dash_lilys_book_of_dares.authors << @david_levithan
+
+#relic
+@douglas_preston = Author.create(name: "Douglas Preston", birth_year: 1956)
+@lincoln_child = Author.create(name: "Lincoln Child", birth_year: 1957)
+
+@relic = Book.create(title: "Relic", pages: 481)
+@relic.authors << @douglas_preston
+@relic.authors << @lincoln_child
+
+#the explorers guild
+@kevin_costner = Author.create(name: "Kevin Costner", birth_year: 1955)
+@jon_baird = Author.create(name: "Jon Baird", birth_year: 1880)
+
+@the_explorers_guild = Book.create(title: "The Explorers Guild", pages: 792)
+@the_explorers_guild.authors << @kevin_costner
+@the_explorers_guild.authors << @jon_baird
+
+puts "done!"
+</textarea>
+  </body>
+</html>

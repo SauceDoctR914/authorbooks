@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+  root 'welcome#index'
   resources :author_books
   resources :authors
   resources :books
